@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pradsgaard Labs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 480px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: #fff;
+        }
+
+        h1 span {
+            color: #666;
+        }
+
+        .app-link {
+            display: inline-block;
+            margin-bottom: 3rem;
+            padding: 12px 24px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 6px;
+            color: #00d4aa;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .app-link:hover {
+            background: #222;
+            border-color: #00d4aa;
+        }
+
+        .app-link::before {
+            content: '>';
+            margin-right: 8px;
+            opacity: 0.5;
+        }
+
+        .info {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            color: #888;
+        }
+
+        .info a {
+            color: #888;
+            text-decoration: none;
+            border-bottom: 1px solid #333;
+            transition: all 0.2s ease;
+        }
+
+        .info a:hover {
+            color: #fff;
+            border-color: #666;
+        }
+
+        .divider {
+            margin: 1.5rem 0;
+            border: none;
+            border-top: 1px solid #222;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pradsgaard Labs <span>/</span></h1>
+
+        <a href="https://exit1.dev" class="app-link">exit1.dev</a>
+
+        <div class="info">
+            <a href="mailto:morten@pradsgaardlabs.com">morten@pradsgaardlabs.com</a>
+            <hr class="divider">
+            C/O Morten Pradsgaard<br>
+            Bogfinkevej 2, 7400 Herning<br>
+            Denmark<br>
+            <br>
+            CVR DK46156153
+        </div>
+    </div>
+</body>
+</html>
