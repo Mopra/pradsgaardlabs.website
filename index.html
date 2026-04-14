@@ -57,9 +57,15 @@
             border-color: #666;
         }
 
+        .app-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 3rem;
+        }
+
         .app-link {
             display: inline-block;
-            margin-bottom: 3rem;
             padding: 12px 24px;
             background: #1a1a1a;
             border: 1px solid #333;
@@ -117,7 +123,11 @@
         <h1>Morten Pradsgaard <span>/</span></h1>
         <p class="tagline">CTO at <a href="https://optipeople.com/">Optipeople</a> by day.<br>Building side projects by night.</p>
 
-        <a href="https://exit1.dev" class="app-link">exit1.dev</a>
+        <div class="app-links">
+            <a href="https://exit1.dev" class="app-link">exit1.dev</a>
+            <a href="https://qgn.dev" class="app-link">qgn.dev</a>
+            <a href="https://nvoke.app" class="app-link">nvoke.app</a>
+        </div>
 
         <div class="info">
             <a href="mailto:morten@pradsgaardlabs.com">morten@pradsgaardlabs.com</a>
