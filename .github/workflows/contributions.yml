@@ -1,0 +1,47 @@
+name: Update contribution graph
+
+on:
+  schedule:
+    # Daily at 05:17 UTC — offset from the hour so it isn't queued with everyone else's cron.
+    - cron: '17 5 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/generate-contributions.mjs'
+      - '.github/workflows/contributions.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: contributions
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate contributions.svg
+        env:
+          # Classic PAT with read:user. GITHUB_TOKEN cannot read the contribution calendar.
+          GH_CONTRIB_TOKEN: ${{ secrets.GH_CONTRIB_TOKEN }}
+        run: node scripts/generate-contributions.mjs
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- contributions.svg index.html; then
+            echo "No contribution changes."
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add contributions.svg index.html
+          git commit -m 'Update contribution graph'
+          git push

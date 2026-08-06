@@ -61,7 +61,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
         .app-link {
@@ -85,6 +85,32 @@
             content: '>';
             margin-right: 8px;
             opacity: 0.5;
+        }
+
+        .app-link.secondary {
+            color: #888;
+        }
+
+        .app-link.secondary:hover {
+            color: #fff;
+            border-color: #666;
+        }
+
+        .contrib {
+            margin-bottom: 3rem;
+        }
+
+        .contrib-img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .contrib-count {
+            display: block;
+            margin-top: 0.75rem;
+            font-size: 0.75rem;
+            color: #666;
         }
 
         .info {
@@ -127,6 +153,15 @@
             <a href="https://exit1.dev" class="app-link">exit1.dev</a>
             <a href="https://qgn.app" class="app-link">qgn.app</a>
             <a href="https://nvoke.run" class="app-link">nvoke.run</a>
+            <a href="https://day3.app" class="app-link">day3.app</a>
+            <a href="https://github.com/Mopra" class="app-link secondary">github.com/Mopra</a>
+        </div>
+
+        <div class="contrib">
+            <!-- contrib:start -->
+            <img class="contrib-img" src="contributions.svg?v=2026-08-06" width="739" height="111" alt="GitHub contribution graph: 797 contributions in the last year">
+            <span class="contrib-count">797 contributions in the last year</span>
+            <!-- contrib:end -->
         </div>
 
         <div class="info">
