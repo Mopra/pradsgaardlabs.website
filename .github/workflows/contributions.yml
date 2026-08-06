@@ -5,6 +5,11 @@ on:
     # Daily at 05:17 UTC — offset from the hour so it isn't queued with everyone else's cron.
     - cron: '17 5 * * *'
   workflow_dispatch:
+    inputs:
+      redeploy:
+        description: 'Request a Pages build even if the graph did not change'
+        type: boolean
+        default: false
   push:
     branches: [main]
     paths:
@@ -13,6 +18,7 @@ on:
 
 permissions:
   contents: write
+  pages: write
 
 concurrency:
   group: contributions
@@ -26,18 +32,21 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: Generate contributions.svg
         env:
-          # Classic PAT with read:user. GITHUB_TOKEN cannot read the contribution calendar.
+          # Classic PAT with read:user. GITHUB_TOKEN cannot read the contribution
+          # calendar, and read:user is what includes private contributions.
           GH_CONTRIB_TOKEN: ${{ secrets.GH_CONTRIB_TOKEN }}
         run: node scripts/generate-contributions.mjs
 
       - name: Commit if changed
+        id: commit
         run: |
           if git diff --quiet -- contributions.svg index.html; then
             echo "No contribution changes."
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name 'github-actions[bot]'
@@ -45,3 +54,12 @@ jobs:
           git add contributions.svg index.html
           git commit -m 'Update contribution graph'
           git push
+          echo 'changed=true' >> "$GITHUB_OUTPUT"
+
+      - name: Request a Pages build
+        # A push authenticated with GITHUB_TOKEN does not reliably trigger the
+        # Pages build, so ask for one explicitly or the new graph never ships.
+        if: steps.commit.outputs.changed == 'true' || inputs.redeploy
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh api --method POST "repos/${{ github.repository }}/pages/builds"
