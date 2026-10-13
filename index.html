@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Morten Pradsgaard / Pradsgaard Labs</title>
-    <meta name="description" content="Pradsgaard Labs is the software company of Morten Pradsgaard, CTO at Optipeople. Home of exit1.dev, Quick Gen, nvoke and day3. Herning, Denmark. CVR DK46156153.">
+    <meta name="description" content="Pradsgaard Labs is the software company of Morten Pradsgaard, CTO at Optipeople. Home of Horadric, exit1.dev, Quick Gen, nvoke and day3. Herning, Denmark. CVR DK46156153.">
     <link rel="canonical" href="https://pradsgaardlabs.com/">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <meta name="theme-color" content="#0a0a0a">
@@ -12,12 +12,12 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Pradsgaard Labs">
     <meta property="og:title" content="Morten Pradsgaard / Pradsgaard Labs">
-    <meta property="og:description" content="Pradsgaard Labs is the software company of Morten Pradsgaard, CTO at Optipeople. Home of exit1.dev, Quick Gen, nvoke and day3.">
+    <meta property="og:description" content="Pradsgaard Labs is the software company of Morten Pradsgaard, CTO at Optipeople. Home of Horadric, exit1.dev, Quick Gen, nvoke and day3.">
     <meta property="og:url" content="https://pradsgaardlabs.com/">
     <meta property="og:locale" content="en_GB">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Morten Pradsgaard / Pradsgaard Labs">
-    <meta name="twitter:description" content="Pradsgaard Labs is the software company of Morten Pradsgaard, CTO at Optipeople. Home of exit1.dev, Quick Gen, nvoke and day3.">
+    <meta name="twitter:description" content="Pradsgaard Labs is the software company of Morten Pradsgaard, CTO at Optipeople. Home of Horadric, exit1.dev, Quick Gen, nvoke and day3.">
     <style>
         * {
             margin: 0;
@@ -173,13 +173,17 @@
         <p class="tagline">CTO at <a href="https://optipeople.com/">Optipeople</a> by day.<br>Building side projects by night.</p>
 
         <div class="app-links">
+            <a href="https://horadric.dev" class="app-link">
+                <span class="app-name">horadric.dev</span>
+                <span class="app-desc">All your Claude Code, Codex and Grok sessions as desktop tiles</span>
+            </a>
             <a href="https://exit1.dev" class="app-link">
                 <span class="app-name">exit1.dev</span>
                 <span class="app-desc">Free uptime and SSL monitoring with instant alerts</span>
             </a>
             <a href="https://qgn.app" class="app-link">
                 <span class="app-name">qgn.app</span>
-                <span class="app-desc">Quick Gen — instant screenshots and screen recording for Windows</span>
+                <span class="app-desc">Quick Gen: instant screenshots and screen recording for Windows</span>
             </a>
             <a href="https://nvoke.run" class="app-link">
                 <span class="app-name">nvoke.run</span>
@@ -239,6 +243,7 @@
           "founder": { "@id": "https://pradsgaardlabs.com/#morten" },
           "sameAs": [
             "https://github.com/Mopra",
+            "https://horadric.dev",
             "https://exit1.dev",
             "https://qgn.app",
             "https://nvoke.run",
@@ -280,12 +285,25 @@
             "@type": "ItemList",
             "name": "Pradsgaard Labs products",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "item": { "@id": "https://exit1.dev/#software" } },
-              { "@type": "ListItem", "position": 2, "item": { "@id": "https://qgn.app/#software" } },
-              { "@type": "ListItem", "position": 3, "item": { "@id": "https://nvoke.run/#software" } },
-              { "@type": "ListItem", "position": 4, "item": { "@id": "https://day3.app/#software" } }
+              { "@type": "ListItem", "position": 1, "item": { "@id": "https://horadric.dev/#software" } },
+              { "@type": "ListItem", "position": 2, "item": { "@id": "https://exit1.dev/#software" } },
+              { "@type": "ListItem", "position": 3, "item": { "@id": "https://qgn.app/#software" } },
+              { "@type": "ListItem", "position": 4, "item": { "@id": "https://nvoke.run/#software" } },
+              { "@type": "ListItem", "position": 5, "item": { "@id": "https://day3.app/#software" } }
             ]
           }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://horadric.dev/#software",
+          "name": "Horadric",
+          "url": "https://horadric.dev",
+          "description": "Free, open source desktop app for Windows and macOS that shows every Claude Code, Codex and Grok Build session as a tile. The one that needs you turns amber.",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Windows, macOS",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "publisher": { "@id": "https://pradsgaardlabs.com/#organization" },
+          "author": { "@id": "https://pradsgaardlabs.com/#morten" }
         },
         {
           "@type": "WebApplication",

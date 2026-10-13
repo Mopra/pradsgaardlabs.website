@@ -54,6 +54,9 @@ async function fetchCalendar(login, token) {
     body: JSON.stringify({ query: QUERY, variables: { login } }),
   });
 
+  if (res.status === 401) {
+    throw new Error('GH_CONTRIB_TOKEN was rejected (401). It has most likely expired: create a new classic PAT with read:user and update the repo secret.');
+  }
   if (!res.ok) {
     throw new Error(`GitHub API returned ${res.status} ${res.statusText}: ${await res.text()}`);
   }

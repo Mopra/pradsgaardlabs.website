@@ -2,7 +2,7 @@ name: Update contribution graph
 
 on:
   schedule:
-    # Daily at 05:17 UTC — offset from the hour so it isn't queued with everyone else's cron.
+    # Daily at 05:17 UTC, offset from the hour so it isn't queued with everyone else's cron.
     - cron: '17 5 * * *'
   workflow_dispatch:
     inputs:
@@ -28,9 +28,9 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: '24'
 
